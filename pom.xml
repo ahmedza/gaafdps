@@ -8,9 +8,22 @@
   <name>MGPS TCP Client Server</name>
   <description>MGPS TCP Client Server</description>
 
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-releasetrain</artifactId>
+            <version>Gosling-SR4</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
  <properties>
  	<spring.version>4.2.4.RELEASE</spring.version>
  	<spring.boot.version>1.3.2.RELEASE</spring.boot.version>
+ 	<spring.jpa>1.9.2.RELEASE</spring.jpa>
  </properties>
 
     <parent>
@@ -20,15 +33,39 @@
     </parent>
 
   <dependencies>
-    <dependency>
+    <!--dependency>
       <groupId>org.springframework.integration</groupId>
       <artifactId>spring-integration-ip</artifactId>
       <scope>compile</scope>
-    </dependency>
+    </dependency-->
 
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    
+<!--     <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-jpa</artifactId>
+    </dependency> -->
+    
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jms</artifactId>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.activemq</groupId>
+	    <artifactId>activemq-broker</artifactId>
+	</dependency>
+    
+<!--dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency-->
+    
+    <dependency>
+		<groupId>com.h2database</groupId>
+		<artifactId>h2</artifactId>
     </dependency>
     
     <dependency>
@@ -43,7 +80,23 @@
 	  <scope>test</scope>
     </dependency>
 
+
+
+<!--     <dependency>
+    	<groupId>com.sun.mail</groupId>
+    	<artifactId>javax.mail</artifactId>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-hornetq</artifactId>
+    </dependency>
+-->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-data-jpa</artifactId>
+  	</dependency>
   </dependencies>
+
   
   	<build>
 		<plugins>

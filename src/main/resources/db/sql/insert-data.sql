@@ -1,0 +1,1 @@
+insert into AFTN_MSG(ID, RAW_MSG, Filing_time) values(1, 'AABBCCDD', sysdate);

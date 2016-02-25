@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd">
+
+
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory" 
+		p:userName="admin"
+		p:password="admin" 
+		p:brokerURL="tcp://127.0.0.1:61616"
+		primary="true"
+		p:trustedPackages="com.gcaa.fplmb"></bean>
+		
+	<bean id="outTemplate" class="org.springframework.jms.core.JmsTemplate" 
+			p:connectionFactory-ref="connectionFactory"
+			p:defaultDestinationName="fplmb.fdps.out.q" primary="true">
+			</bean>
+
+	<bean id="mgpsOutDestination" class="org.apache.activemq.command.ActiveMQQueue"
+		p:physicalName="fplmb.fdps.out.q"></bean>
+
+	<jms:listener-container connection-factory="connectionFactory" >
+		<jms:listener destination="fplmb.fdps.out.q" ref="fplmbMessageHandler" method="handleMessage"/>
+	</jms:listener-container>
+
+	<!--bean class="org.springframework.jms.listener.SimpleMessageListenerContainer" p:connectionFactory-ref="connectionFactory" p:messageListener="fplmbMessageHandler"></bean-->
+
+	<bean id="fplmbMessageHandler" class="com.gcaa.fplmb.jms.FplMbMessageHandler"/>
+
+</beans>
