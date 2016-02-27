@@ -5,7 +5,7 @@ import javax.jms.ObjectMessage;
 import org.apache.log4j.Logger;
 import org.springframework.messaging.MessagingException;
 
-import com.gcaa.fplmb.tcp.model.icao.IcaoAftnMessage;
+import com.gcaa.fplmb.model.IcaoAftnMessage;
 
 public class FplMbMessageHandler/* implements MessageHandler*/ {
 

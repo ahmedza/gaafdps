@@ -9,8 +9,8 @@ import java.util.Scanner;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.gcaa.fplmb.model.TcpConnectionModel;
 import com.gcaa.fplmb.processor.MessageProcessor;
-import com.gcaa.fplmb.tcp.model.TcpConnectionModel;
 
 public abstract class FplMbSocket {
 

@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.gcaa.fplmb.tcp.model.TcpConnectionModel;
+import com.gcaa.fplmb.model.TcpConnectionModel;
 import com.gcaa.fplmb.tcp.socket.FplMbSocket;
 
 @Component
